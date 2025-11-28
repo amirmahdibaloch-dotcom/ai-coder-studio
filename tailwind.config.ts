@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
+        border: "hsl(var(--border) / 0.06)",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
@@ -54,8 +54,23 @@ export default {
           "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
           accent: "hsl(var(--sidebar-accent))",
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
+          border: "hsl(var(--sidebar-border) / 0.06)",
           ring: "hsl(var(--sidebar-ring))",
+        },
+        chrome: {
+          bg: "hsl(var(--chrome-bg))",
+          card: "hsl(var(--chrome-card))",
+          border: "hsl(var(--chrome-border) / 0.06)",
+        },
+        text: {
+          dim: "hsl(var(--text-dim))",
+          muted: "hsl(var(--text-muted))",
+        },
+        hover: {
+          bg: "hsl(var(--hover-bg))",
+        },
+        active: {
+          bg: "hsl(var(--active-bg))",
         },
       },
       borderRadius: {

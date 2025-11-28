@@ -1,12 +1,24 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { TopMenu } from "@/components/TopMenu";
+import { Sidebar } from "@/components/Sidebar";
+import { Editor } from "@/components/Editor";
+import { AiPanel } from "@/components/AiPanel";
+import { StatusBar } from "@/components/StatusBar";
 
 const Index = () => {
+  const [activeFile, setActiveFile] = useState<string>("app.swift");
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="h-screen flex flex-col bg-chrome-bg text-foreground overflow-hidden">
+      <TopMenu />
+      
+      <div className="flex flex-1 overflow-hidden">
+        <Sidebar onFileSelect={setActiveFile} />
+        <Editor filename={activeFile} />
+        <AiPanel />
       </div>
+      
+      <StatusBar />
     </div>
   );
 };
