@@ -12,10 +12,10 @@ export const AiPanel = () => {
   return (
     <div className="w-80 bg-chrome-card border-l border-chrome-border flex flex-col">
       {/* Header */}
-      <div className="h-10 px-4 border-b border-chrome-border flex items-center justify-between">
+      <div className="h-10 px-4 border-b border-chrome-border flex items-center justify-between group hover:bg-hover-bg transition-colors duration-300">
         <div className="flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-primary" />
-          <h3 className="text-sm font-semibold">AI Assistant</h3>
+          <Sparkles className="w-4 h-4 text-primary animate-pulse group-hover:scale-110 transition-transform duration-300" />
+          <h3 className="text-sm font-semibold group-hover:text-primary transition-colors duration-300">AI Assistant</h3>
         </div>
       </div>
 
@@ -91,10 +91,10 @@ export const AiPanel = () => {
                 <p className="text-primary">⚠️ Agent mode will modify your files</p>
               </div>
               <Button 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/50 group"
                 size="sm"
               >
-                <Sparkles className="w-4 h-4 mr-2" />
+                <Sparkles className="w-4 h-4 mr-2 group-hover:rotate-180 transition-transform duration-500" />
                 Run Agent
               </Button>
             </div>
@@ -112,9 +112,9 @@ export const AiPanel = () => {
             />
             <Button
               size="sm"
-              className="absolute bottom-2 right-2 h-7 w-7 p-0 bg-primary hover:bg-primary/90"
+              className="absolute bottom-2 right-2 h-7 w-7 p-0 bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-110 hover:rotate-12 group"
             >
-              <Send className="w-3 h-3" />
+              <Send className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
             </Button>
           </div>
         </div>
