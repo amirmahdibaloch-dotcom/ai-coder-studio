@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, ChevronRight, FileCode, Folder, FolderOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/hooks/useTheme";
 
 interface FileNode {
   name: string;
@@ -76,33 +77,33 @@ const FileTreeItem = ({
       <div
         onClick={handleClick}
         className={cn(
-          "flex items-center gap-2 py-1 px-2 cursor-pointer text-xs transition-colors",
-          "hover:bg-hover-bg",
-          isActive && "bg-primary/20 text-primary border-l-2 border-primary"
+          "flex items-center gap-2 py-1 px-2 cursor-pointer text-xs transition-all duration-300 group",
+          "hover:bg-hover-bg hover:scale-[1.02]",
+          isActive && "bg-primary/20 text-primary border-l-2 border-primary animate-fade-in"
         )}
         style={{ paddingLeft: `${level * 12 + 8}px` }}
       >
         {node.type === "folder" ? (
           <>
             {isOpen ? (
-              <ChevronDown className="w-3 h-3 text-text-muted flex-shrink-0" />
+              <ChevronDown className="w-3 h-3 text-text-muted flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
             ) : (
-              <ChevronRight className="w-3 h-3 text-text-muted flex-shrink-0" />
+              <ChevronRight className="w-3 h-3 text-text-muted flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5" />
             )}
             {isOpen ? (
-              <FolderOpen className="w-4 h-4 text-text-muted flex-shrink-0" />
+              <FolderOpen className="w-4 h-4 text-text-muted flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
             ) : (
-              <Folder className="w-4 h-4 text-text-muted flex-shrink-0" />
+              <Folder className="w-4 h-4 text-text-muted flex-shrink-0 transition-all duration-300 group-hover:scale-110" />
             )}
           </>
         ) : (
           <>
             <span className="w-3 h-3 flex-shrink-0" />
-            <FileCode className="w-4 h-4 text-text-muted flex-shrink-0" />
+            <FileCode className="w-4 h-4 text-text-muted flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
           </>
         )}
         <span className={cn(
-          "text-text-muted truncate",
+          "text-text-muted truncate transition-colors duration-300 group-hover:text-foreground",
           isActive && "text-primary font-medium"
         )}>
           {node.name}
@@ -139,9 +140,9 @@ export const Sidebar = ({
   };
 
   return (
-    <div className="w-64 bg-chrome-bg border-r border-chrome-border flex flex-col overflow-hidden">
-      <div className="p-3 border-b border-chrome-border">
-        <h2 className="text-xs font-semibold text-text-muted uppercase tracking-wide">
+    <div className="w-64 bg-chrome-bg border-r border-chrome-border flex flex-col overflow-hidden transition-all duration-300 animate-slide-in-right">
+      <div className="p-3 border-b border-chrome-border group hover:bg-hover-bg transition-colors duration-300">
+        <h2 className="text-xs font-semibold text-text-muted uppercase tracking-wide group-hover:text-primary transition-colors duration-300">
           Explorer
         </h2>
       </div>
